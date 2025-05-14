@@ -1,50 +1,27 @@
 @extends('layout.template')
 
-@section('title', 'Homepage')
-
 @section('content')
-   <h1>Latest Movie</h1>
-   <div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="{{ $movie->cover_image }}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">{{Str::words($movie->synopsis, 10)}}</p>
-        <p class="card-text"><small class="text-body-secondary"> year : {{ $movie->year }}</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
+
+<h2 class="mb-4">All Movie</h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    @foreach ($movies as $movie)
+        <div class="col">
+            <div class="card h-100 d-flex flex-row">
+                <img src="{{ $movie->cover_image }}" class="img-fluid" alt="{{ $movie->title }}" style="max-width: 180px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $movie->title }}</h5>
+                    <p class="card-text">{{ Str::limit($movie->synopsis, 150) }}</p>
+                    <p class="mb-2">Year: {{ $movie->year }}</p>
+                    <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-success btn-sm">Detail</a>
+                </div>
+            </div>
+        </div>
+    @endforeach
 </div>
-@endsection
-<div>
-  {{ $movie->title }}
+
+<div class="d-flex justify-content-center mt-4">
+    {{ $movies->links() }}
+</div>
 
 @endsection

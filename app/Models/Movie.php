@@ -9,6 +9,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Movie extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'slug',
+        'synopsis',
+        'category_id',
+        'year',
+        'actors',
+        'cover_image',
+    ];
 
     /**
      * Get the category that the movie belongs to.

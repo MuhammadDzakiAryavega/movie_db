@@ -8,13 +8,13 @@
     
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">Movie DB</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Watchlist</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/movies/create">Add Movie</a></li>
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search">
@@ -28,8 +28,8 @@
         @yield('content')
     </main>
 
-    <footer class="bg-success text-white text-center py-3 mt-4">
-        <small>&copy; {{ date('Y') }} by Arya</small>
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <small>&copy; {{ date('Y') }} by Arya A.Md.Kom</small>
     </footer>
 </body>
 </html>

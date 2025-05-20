@@ -6,7 +6,7 @@
 <div class="card mb-4">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="{{ $movie->cover_image }}" class="img-fluid rounded-start" alt="{{ $movie->title }}" style="object-fit: cover; width: 100%; height: 100%;">
+            <img src="{{ asset('storage/' . $movie->cover_image) }}" class="img-fluid rounded-start" alt="{{ $movie->title }}" style="object-fit: cover; width: 100%; height: 100%;">
         </div>
         <div class="col-md-8">
             <div class="card-body">

@@ -27,7 +27,7 @@
                     </small>
                 </p>
 
-                <a href="{{ url()->previous() }}" class="btn btn-secondary mt-3">Back</a>
+                <a href="{{ url()->previous() }}" class="btn btn-primary">Back</a>
             </div>
         </div>
     </div>

@@ -22,12 +22,13 @@
 
       <div class="mb-3">
         <label for="synopsis" class="form-label">Sinopsis</label>
-        <input type="text" class="form-control" id="synopsis" name="synopsis">
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="synopsis" rows="3"></textarea>
       </div>
 
       <div class="mb-3">
         <label for="category_id" class="form-label">Kategori</label>
         <select class="form-select" name="category_id">
+          <option value="" selected disabled>Pilih Kategori</option>
           @foreach ($categories as $category)
             <option value="{{ $category->id }}">{{ $category->category_name }}</option>
           @endforeach

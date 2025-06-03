@@ -50,4 +50,37 @@ class MovieController extends Controller
     // Redirect kembali dengan pesan sukses
    return redirect()->back()->with('success', 'Film berhasil ditambahkan!');
   }   
+
+  public function list()
+    {
+        $movies = Movie::paginate(10);
+        return view('list_movie', compact('movies'));
+    }
+    
+    public function edit($id)
+    {
+        $movies = Movie::findorfail($id);
+        return view('edit_movie', compact('movies'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $movies = Movie::findorfail($id);
+        $movies->update([
+            'title' => $request->title,
+            'synopsis' => $request->synopsis,
+            'year' => $request->year,
+            'category_id' => $request->category_id,
+            'actors' => $request->actors,
+        ]);
+        return redirect('/list')->with('success', 'berhasil mengupdate data movie');
+    }
+
+    public function destroy($id)
+    {
+        $data = Movie::findorfail($id);
+        $data->delete();
+        return redirect()->back()->with('success', 'data berhasil di hapus');
+    }
+
 }

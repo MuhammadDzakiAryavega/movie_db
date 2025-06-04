@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\RoleAdmin;
 
 Route::get('/', [MovieController::class, 'index']);
 

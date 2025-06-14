@@ -25,8 +25,8 @@
           <li class="nav-item"><a class="nav-link active" href="/movies/create">Add Movie</a></li>
         </ul>
 
-        <form class="d-flex me-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search">
+        <form class="d-flex me-3" role="search" action="{{ url('/') }}" method="GET">
+          <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
 

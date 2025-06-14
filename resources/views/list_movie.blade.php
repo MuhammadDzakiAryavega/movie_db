@@ -24,9 +24,8 @@
     <td>{{ $movie->actors }}</td>
     <td>
         <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-primary">Detail</a>
-        @if (auth()->user()->role === 'admin')
         <a href="{{ route('movies.edit', $movie->id) }}" class="btn btn-warning">Edit</a>
-         @endif
+
         @can('delete-movie')
             
         
